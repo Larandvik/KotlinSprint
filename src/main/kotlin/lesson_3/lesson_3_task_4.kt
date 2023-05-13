@@ -1,4 +1,7 @@
 package lesson_3
+
+import lesson_3.MoveCount.Companion.moveCount
+
 /*В приложении шахматы, ходы отправляются на сервер в виде строки формата [откуда-куда;номер хода].
 Игрок начал партию ходом из E2 в E4. Все данные (откуда, куда, номер хода)
 инициализировать и хранить в отдельных переменных.
@@ -13,17 +16,22 @@ fun main() {
 
     var valueFrom: String = "E2"
     var valueTo: String = "E4"
-    var moveCount: Int = 0
 
-    fun chessMove(from: String, to: String): String {
-        moveCount++
-        return "[$valueFrom-$valueTo;$moveCount]"
-    }
-
-    println(chessMove(valueFrom, valueTo))
+    println(getChessMove(valueFrom, valueTo))
 
     valueFrom = "D2"
-    valueTo = "D3"
+    valueTo = "D4"
 
-    println(chessMove(valueFrom, valueTo))
+    println(getChessMove(valueFrom, valueTo))
+}
+
+fun getChessMove(from: String, to: String): String {
+    moveCount++
+    return "[$from-$to;$moveCount]"
+}
+
+class MoveCount {
+    companion object {
+        var moveCount: Int = 0
+    }
 }
