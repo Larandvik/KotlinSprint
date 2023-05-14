@@ -1,5 +1,6 @@
 package lesson_3
 
+import lesson_3.MoveCount.Companion.moveCount
 import java.util.regex.Matcher
 import java.util.regex.Pattern
 
@@ -13,26 +14,23 @@ fun main() {
 
     var valueFrom: String = "E2"
     var valueTo: String = "E4"
-    var moveCount: Int = 0
 
-    fun chessMove(from: String, to: String): String {
-        moveCount++
-        return "[$valueFrom-$valueTo;$moveCount]"
-    }
-
-    println(chessMove(valueFrom, valueTo))
+    println(getChessMove(valueFrom, valueTo))
 
     // игрок делает ход
     valueFrom = "D2"
     valueTo = "D4"
 
     // сервер получил ход игрока
-    val movePlayerServer = chessMove(valueFrom, valueTo)
+    val movePlayer = getChessMove(valueFrom, valueTo)
+    unparseChessMove(movePlayer)
+}
 
-    // используем регулярное выражение, единственная идея чтобы перехватить 10 ход и тд
+// используем регулярное выражение, чтобы перехватить 10 ход и тд
+fun unparseChessMove(move: String) {
     val regex = """([A-H][1-8])-([A-H][1-8]);(\d+)"""
     val pattern: Pattern = Pattern.compile(regex)
-    val matcher: Matcher = pattern.matcher(movePlayerServer)
+    val matcher: Matcher = pattern.matcher(move)
 
     if (matcher.find()) {
         val valueFromServer = matcher.group(1)
@@ -46,3 +44,15 @@ fun main() {
         println("так ходить нельзя")
     }
 }
+
+fun getChessMove(from: String, to: String): String {
+    moveCount++
+    return "[$from-$to;$moveCount]"
+}
+
+class MoveCount {
+    companion object {
+        var moveCount: Int = 0
+    }
+}
+
