@@ -26,6 +26,4 @@ fun main() {
     println(getChessMove(valueFrom, valueTo, ++moveCount))
 }
 
-fun getChessMove(from: String, to: String, moveCount: Int): String {
-    return "[$from-$to;$moveCount]"
-}
+fun getChessMove(from: String, to: String, moveCount: Int) = "[$from-$to;$moveCount]"
