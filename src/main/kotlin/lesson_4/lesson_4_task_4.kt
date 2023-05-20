@@ -1,5 +1,4 @@
 package lesson_4
-
 /* Программа тренировок разбивает упражнения на несколько групп: упражнения для мышц рук, ног, спины и пресса.
 Она рекомендует делать упражнения на каждую группу мышц через день. Пользователь начал занятия с рук и пресса.
 Напиши программу, которая будет сообщать, какие упражнения нужно выполнить сегодня.
@@ -23,11 +22,13 @@ fun main() {
     getProgramGym(dayCounter)
 }
 
-private fun getProgramGym(dayCounter: Int) {
-    val isArmExercises = dayCounter % 2 != 0
-    val isLegExercises = dayCounter % 2 == 0
-    val isBackExercises = dayCounter % 2 == 0
-    val isAbsExercises = dayCounter % 2 != 0
+fun getProgramGym(dayCounter: Int) {
+    val isEvenDay = dayCounter % 2 == 0
+
+    val isArmExercises = isEvenDay.not()
+    val isLegExercises = isEvenDay
+    val isBackExercises = isEvenDay
+    val isAbsExercises = isEvenDay.not()
 
     println("""
         Упражнения для рук:    $isArmExercises
