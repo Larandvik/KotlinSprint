@@ -22,6 +22,6 @@ fun logInApp(userName: String, userPass: String) {
 
     println("Введите пароль:")
     val pass = readln()
-    if (userName == name && userPass == pass) println("Добро пожаловать $name")
+    if (userPass == pass) println("Добро пожаловать $name")
     else println("Неверный логин или пароль")
 }
