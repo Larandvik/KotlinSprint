@@ -1,4 +1,5 @@
 package lesson_4
+
 /*Исследовательский корабль может отправляться в длительное плавание при следующих условиях:
 нет повреждений корпуса, команда в количестве от минимального (55 чел) до рекомендуемого (70 чел) НЕ включительно,
 провизии больше 50 ящиков и благоприятные или неблагоприятные метеоусловия.
@@ -28,12 +29,16 @@ fun main() {
     println("Благоприятные ли метеоусловия?(true/false)")
     val isFlyingWeather = readln().toBoolean()
 
-    getShipReady(isReadyShip(isDamage, countCrew, amountOfProvisions, isFlyingWeather))
+    val readyShip = isReadyShip(isDamage, countCrew, amountOfProvisions, isFlyingWeather)
+    getShipReady(readyShip)
 }
 
-fun isReadyShip(isDamage: Boolean, countCrew: Int, amountOfProvisions: Int, isFlyingWeather: Boolean): Boolean =
-    ((!isDamage && countCrew in minCountCrew until recCountCrew  && (isFlyingWeather || isFlyingWeather.not()) ||
-            (isDamage && countCrew == recCountCrew && isFlyingWeather)) && amountOfProvisions > minProvisions)
+fun isReadyShip(isDamage: Boolean, countCrew: Int, amountOfProvisions: Int, isFlyingWeather: Boolean): Boolean {
+    return (!isDamage && countCrew in MIN_COUNT_CREW until REC_COUNT_CREW
+            && amountOfProvisions > MIN_PROVISIONS && isFlyingWeather)
+
+            || (isDamage && countCrew == REC_COUNT_CREW && isFlyingWeather && amountOfProvisions > MIN_PROVISIONS)
+}
 
 fun getShipReady(isReady: Boolean) {
     when (isReady) {
@@ -42,6 +47,6 @@ fun getShipReady(isReady: Boolean) {
     }
 }
 
-const val minProvisions = 50
-const val minCountCrew = 55
-const val recCountCrew = 70
+const val MIN_PROVISIONS = 50
+const val MIN_COUNT_CREW = 55
+const val REC_COUNT_CREW = 70
