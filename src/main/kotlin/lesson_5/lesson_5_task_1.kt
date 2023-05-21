@@ -1,7 +1,5 @@
 package lesson_5
 
-import kotlin.random.Random
-
 /*Нужно написать часть модуля для авторизации пользователя.
 Для входа в приложение пользователь должен доказать, что он не бот.
 Для этого программа предлагает решить простой математический пример –
@@ -12,12 +10,16 @@ import kotlin.random.Random
 В противном случае вывести сообщение "Доступ запрещен."*/
 fun main() {
 
-    val a = Random.nextInt(1, 10)
-    val b = Random.nextInt(1, 10)
+    val firstRandomValue = random(1, 10)
+    val secondRandomValue = random(1, 10)
 
-    println("Для входа решите задачу: $a + $b = ?")
+    println("Для входа решите задачу: $firstRandomValue + $secondRandomValue = ?")
     val answer = readln().toInt()
 
-    if (answer == a + b) println("Добро пожаловать!")
+    if (answer == firstRandomValue + secondRandomValue) println("Добро пожаловать!")
     else println("Доступ запрещен.")
+}
+
+fun random(start: Int, end: Int): Int {
+    return (start until end).random()
 }
