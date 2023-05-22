@@ -29,22 +29,15 @@ fun main() {
     println("Благоприятные ли метеоусловия?(true/false)")
     val isFlyingWeather = readln().toBoolean()
 
-    val readyShip = isReadyShip(isDamage, countCrew, amountOfProvisions, isFlyingWeather)
-    getShipReady(readyShip)
+    isReadyShip(isDamage, countCrew, amountOfProvisions, isFlyingWeather)
 }
 
-fun isReadyShip(isDamage: Boolean, countCrew: Int, amountOfProvisions: Int, isFlyingWeather: Boolean): Boolean {
-    return (!isDamage && countCrew in MIN_COUNT_CREW until REC_COUNT_CREW
-            && amountOfProvisions > MIN_PROVISIONS && isFlyingWeather)
-
-            || (isDamage && countCrew == REC_COUNT_CREW && isFlyingWeather && amountOfProvisions > MIN_PROVISIONS)
-}
-
-fun getShipReady(isReady: Boolean) {
-    when (isReady) {
-        true -> println("Корабль готов к отправлению")
-        false -> println("Корабль не готов к отправлению")
-    }
+fun isReadyShip(isDamage: Boolean, countCrew: Int, amountOfProvisions: Int, isFlyingWeather: Boolean) {
+    if ((!isDamage && countCrew in MIN_COUNT_CREW until REC_COUNT_CREW
+                && amountOfProvisions > MIN_PROVISIONS && isFlyingWeather)
+        || (isDamage && countCrew == REC_COUNT_CREW && isFlyingWeather && amountOfProvisions > MIN_PROVISIONS))
+        println("Корабль готов к отправлению")
+        else println("Корабль не готов к отправлению")
 }
 
 const val MIN_PROVISIONS = 50
