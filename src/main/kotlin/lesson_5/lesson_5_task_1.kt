@@ -10,16 +10,12 @@ package lesson_5
 В противном случае вывести сообщение "Доступ запрещен."*/
 fun main() {
 
-    val firstRandomValue = random(1, 10)
-    val secondRandomValue = random(1, 10)
+    val firstRandomValue = (1 until 10).random()
+    val secondRandomValue = (1 until 10).random()
 
     println("Для входа решите задачу: $firstRandomValue + $secondRandomValue = ?")
     val answer = readln().toInt()
 
     if (answer == firstRandomValue + secondRandomValue) println("Добро пожаловать!")
     else println("Доступ запрещен.")
-}
-
-fun random(start: Int, end: Int): Int {
-    return (start until end).random()
 }
