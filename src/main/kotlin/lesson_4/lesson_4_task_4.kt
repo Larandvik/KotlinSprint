@@ -25,10 +25,10 @@ fun main() {
 fun isEvenDay(dayCounter: Int): Boolean = dayCounter % 2 == 0
 
 fun getProgramGym(dayCounter: Int) {
-    val isArmExercises = isEvenDay(dayCounter).not()
+    val isArmExercises = !isEvenDay(dayCounter)
     val isLegExercises = isEvenDay(dayCounter)
     val isBackExercises = isEvenDay(dayCounter)
-    val isAbsExercises = isEvenDay(dayCounter).not()
+    val isAbsExercises = !isEvenDay(dayCounter)
 
     println("""
         Упражнения для рук:    $isArmExercises
