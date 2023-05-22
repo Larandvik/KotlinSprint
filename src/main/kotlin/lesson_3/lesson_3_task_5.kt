@@ -11,16 +11,16 @@ fun main() {
     var valueTo: String = "E4"
     var moveCount: Int = 0
 
-    println(getChessMove(valueFrom, valueTo, ++moveCount))
+    println(getChessMove1(valueFrom, valueTo, ++moveCount))
 
     valueFrom = "D2"
     valueTo = "D4"
 
-    parseServer(getChessMove(valueFrom, valueTo, ++moveCount))
+    parseServer(getChessMove1(valueFrom, valueTo, ++moveCount))
 
 }
 
-fun getChessMove(from: String, to: String, moveCount: Int) = "[$from-$to;$moveCount]"
+fun getChessMove1(from: String, to: String, moveCount: Int) = "[$from-$to;$moveCount]"
 
 fun parseServer(move: String) {
 
