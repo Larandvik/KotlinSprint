@@ -9,7 +9,6 @@ fun main() {
     val ingredientsOfReceipt = arrayOfNulls<String>(countIngredients)
     var counter = 0
 
-
     while (counter < ingredientsOfReceipt.size) {
         println("Введите ингредиент  №${counter + 1}:")
         ingredientsOfReceipt[counter] = readln()
