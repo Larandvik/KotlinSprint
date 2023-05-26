@@ -6,9 +6,9 @@ package lesson_9
  – отсортируй полученный список по алфавиту и выведи его в консоль.*/
 fun main() {
     println("Введите пять названий ингредиентов блюда в одной строке, разделяя их запятыми")
-    val ingredients = (readln().split(",")).map { it.trim() }.toMutableList()
-    ingredients.sort()
-    ingredients.forEach { println(it) }
+    val ingredients = (readln().split(",")).map { it.trim() }
+    val sortedIngredients = ingredients.sorted()
+    sortedIngredients.forEach { println(it) }
 }
 
 
