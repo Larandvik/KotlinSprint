@@ -1,4 +1,5 @@
 package lesson_9
+
 /*Напиши программу, которая будет рассчитывать сколько потребуется ингредиентов для разного количества порций блюда.
 Для примера возьмем рецепт омлета. Для одной порции нужно: яиц – 2шт., молока – 50 мл, сливочного масла – 15 гр.
 
@@ -9,16 +10,17 @@ package lesson_9
  такого типа: “На [количество_порций] порций вам понадобится: Яиц – n, молока – n1, сливочного масла – n2]”.*/
 fun main() {
 
-    val quantityIngredients = listOf(2,50,15)
+    val quantityIngredients = listOf(2, 50, 15)
 
     println("Введите количество порций:")
-
     val portions = readln().toInt()
 
-    val portionsForUser = quantityIngredients.map {
-        it * portions
-    }
+    val portionsForUser = quantityIngredients.map { it * portions }
 
-    println("На $portions порций вам понадобится: Яиц – ${portionsForUser[0]}, молока – ${portionsForUser[1]}, " +
-            "сливочного масла – ${portionsForUser[2]}")
+    println(
+        "На $portions порций вам понадобится: " +
+                "Яиц – ${portionsForUser[0]}, " +
+                "молока – ${portionsForUser[1]}, " +
+                "сливочного масла – ${portionsForUser[2]}"
+    )
 }
