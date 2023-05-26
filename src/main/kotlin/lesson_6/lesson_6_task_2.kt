@@ -4,11 +4,11 @@ package lesson_6
 Где N – количество секунд, введенных пользователем.*/
 fun main() {
     println("Введите количество секунд, которую нужно засечь:")
-    val userTimer = readln().toInt()
-    timer(userTimer)
+    val userSecondsTimer = readln().toInt()
+    runTimer(userSecondsTimer)
 }
 
-fun timer(userTimer: Int) {
+fun runTimer(userTimer: Int) {
     Thread.sleep((1000 * userTimer).toLong())
     println("Прошло $userTimer секунд")
 }
