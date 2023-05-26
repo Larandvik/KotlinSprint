@@ -10,8 +10,8 @@ fun main() {
 
     println("Какой длины создать пароль?")
     val userValueForPass = readln().toInt()
+    var userPassword = ""
 
-    for (i in 0 until userValueForPass) {
-        print(optionsPass.random())
-    }
+    for (i in 0 until userValueForPass) userPassword += optionsPass.random()
+    print(userPassword)
 }
