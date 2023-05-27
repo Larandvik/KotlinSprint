@@ -9,14 +9,14 @@ package lesson_10
  – после сравнения результатов, выведи соответствующее сообщение в консоль. Например: "Победило человечество" или "Победила машина".*/
 fun main() {
     println("Комьютер бросает кости")
-    val throwComputer = getRollDiceMove()
+    val throwComputer = getListRollDiceMove()
     println("компьютер выбросил: $throwComputer")
 
     do {
         println("Ваша очередь бросать кости (нажмите enter)")
         val gamerMove = readln()
-    } while (gamerMove != "")
-    val throwUser = getRollDiceMove()
+    } while (gamerMove.isNotEmpty())
+    val throwUser = getListRollDiceMove()
     println("игрок выбросил: $throwUser")
 
     val computerSum = throwComputer.sum()
@@ -32,13 +32,13 @@ fun main() {
 
 fun getAWinner(computer: Int, user: Int) = if (computer > user) "Победила машина" else "Победило человечество"
 
-fun getRollDiceMove(): List<Int> {
+fun getListRollDiceMove(): List<Int> {
     val rollDice = mutableListOf<Int>()
-    for (i in 0 until countRollDice) {
+    for (i in 0 until COUNT_OF_DICE) {
         rollDice.add(varRollDice.random())
     }
     return rollDice
 }
 
-const val countRollDice = 2
+const val COUNT_OF_DICE = 2
 val varRollDice = (0..6)
