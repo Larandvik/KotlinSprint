@@ -21,6 +21,6 @@ fun main() {
     println("$userLogin, регистрация прошла успешно")
 }
 
-fun validateLength(logOrPass: String) = logOrPass.length >= minLogAndPass
+fun validateLength(logOrPass: String) = logOrPass.length >= MIN_LOG_AND_PASS
 
-const val minLogAndPass = 4
+const val MIN_LOG_AND_PASS = 4
