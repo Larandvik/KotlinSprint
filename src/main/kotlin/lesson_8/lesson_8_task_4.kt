@@ -16,7 +16,7 @@ fun main() {
 
     println("Какой ингредиент хотите заменить?")
     val ingredientAsked = readln()
-    if (recipeIngredientsOfPancake.contains(ingredientAsked)) {
+    if (ingredientAsked in recipeIngredientsOfPancake) {
         println("На какой ингредиент хотите поменять?")
     } else println("Такого ингредиента в рецепте нет")
 
