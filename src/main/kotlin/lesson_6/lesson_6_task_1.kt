@@ -10,13 +10,16 @@ fun main() {
     val userLogin = readln()
     println("Придумайте пароль: ")
     val userPass = readln()
+    var valueLogin: String
+    var valuePass: String
 
-    println("Введите логин:")
-    val valueLogin = readln()
-    println("Введите пароль:")
-    val valuePass = readln()
+    do {
+        println("Введите логин:")
+        valueLogin = readln()
+        println("Введите пароль:")
+        valuePass = readln()
+        if (userLogin != valueLogin || userPass != valuePass) println("Неверный логин или пароль")
+    } while (userLogin != valueLogin || userPass != valuePass)
 
-    if (userLogin == valueLogin && userPass == valuePass) {
-        println("Авторизация прошла успешно")
-    } else println("Неверный логин или пароль")
+    println("Авторизация прошла успешно")
 }
