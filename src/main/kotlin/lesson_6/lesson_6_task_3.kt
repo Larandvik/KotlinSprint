@@ -7,10 +7,10 @@ package lesson_6
 fun main() {
     println("Введите количество секунд, которую нужно засечь:")
     val userTimer = readln().toInt()
-    runTimer(userTimer)
+    runTimer1(userTimer)
 }
 
-fun runTimer(userTimer: Int) {
+fun runTimer1(userTimer: Int) {
     var counter = userTimer
     while (counter > 0) {
         println("Осталось секунд: ${counter--}")
