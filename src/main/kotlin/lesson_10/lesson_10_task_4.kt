@@ -23,7 +23,7 @@ fun runGame() {
     do {
         println("Ваша очередь бросать кости (нажмите enter)")
         val gamerMove = readln()
-    } while (gamerMove != "")
+    } while (gamerMove.isNotEmpty())
     val throwUser = getRollDiceMove()
     println("игрок выбросил: $throwUser")
 
@@ -40,25 +40,22 @@ fun runGame() {
     answerUser = readln()
 }
 
-fun getAWinner(computer: Int, user: Int): String {
-    val result: String
-    result = if (computer > user) "Победила машина"
-    else {
+fun getAWinner(computer: Int, user: Int): String =
+    if (user > computer) {
         counterWinGame++
         "Победило человечество"
-    }
-    return result
-}
+    } else if (user == computer) "Ничья"
+    else "Победила машина"
 
 fun getRollDiceMove(): List<Int> {
     val rollDice = mutableListOf<Int>()
-    for (i in 0 until countRollDice) {
+    for (i in 0 until COUNT_ROLLDICE) {
         rollDice.add(varRollDice.random())
     }
     return rollDice
 }
 
-const val countRollDice = 2
+const val COUNT_ROLLDICE = 2
 val varRollDice = (0..6)
 var counterWinGame = 0
 var answerUser: String = ""
