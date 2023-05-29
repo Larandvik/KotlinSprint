@@ -18,8 +18,6 @@ fun main() {
         valueLogin = readln()
         println("Введите пароль:")
         valuePass = readln()
-        if (userLogin != valueLogin || userPass != valuePass) println("Неверный логин или пароль")
+        if (userLogin == valueLogin && userPass == valuePass) println("Авторизация прошла успешно")
     } while (userLogin != valueLogin || userPass != valuePass)
-
-    println("Авторизация прошла успешно")
 }
