@@ -1,4 +1,5 @@
 package lesson_10
+
 /*Усовершенствуй игру, где пользователь и компьютер по очереди бросают кости.
 Побеждает выбросивший наибольшее число. Теперь дай возможность пользователю играть до тех пор пока ему не надоест.
 В конце программа должна вывести сколько партий он выиграл.
@@ -11,11 +12,11 @@ package lesson_10
 fun main() {
     do {
         runGame()
-    } while (answerUser == "да")
-    if (answerUser == "нет") println("Вы выиграли $counterWinGame партий")
+    } while (runGame())
+    if (!runGame()) println("Вы выиграли $counterWinGame партий")
 }
 
-fun runGame() {
+fun runGame(): Boolean {
     println("Комьютер бросает кости")
     val throwComputer = getRollDiceMove()
     println("компьютер выбросил: $throwComputer")
@@ -37,7 +38,8 @@ fun runGame() {
         Хотите бросить кости еще раз? Введите Да или Нет
     """.trimIndent()
     )
-    answerUser = readln()
+    val answerUser = readln() == "да"
+    return (answerUser)
 }
 
 fun getAWinner(computer: Int, user: Int): String =
@@ -58,4 +60,3 @@ fun getRollDiceMove(): List<Int> {
 const val COUNT_ROLLDICE = 2
 val varRollDice = (0..6)
 var counterWinGame = 0
-var answerUser: String = ""
