@@ -17,17 +17,20 @@ package lesson_10
 Действия в программе должны быть распределены по соответствующим методам без дублирования кода.*/
 fun main() {
     var userLogin: String
+
     do {
-        println("Придумайте логин (не менее 5 символов):")
+        println("Придумайте логин (не менее $MIN_COUNT_LOG символов):")
         userLogin = readlnOrNull().toString()
         if (!isValidateLength(userLogin)) println("Login должен быть не менее 5 символов")
     } while (!isValidateLength(userLogin))
+
     val userPass: String = getNewPassword()
     runAuthorization(userLogin, userPass)
 }
 
 fun runAuthorization(userLogin: String, userPass: String) {
     println("Для авторизации необходим логин и пароль")
+
     do {
         println("Введите логин:")
         val valueLogin = readln()
@@ -35,15 +38,14 @@ fun runAuthorization(userLogin: String, userPass: String) {
         val valuePass = readln()
         if (userLogin != valueLogin || userPass != valuePass) println("Неверный логин или пароль")
     } while (userLogin != valueLogin || userPass != valuePass)
+
     do {
         val authorizationCode = getAuthorizationCode()
-        println("""
-        Ваш код для авторизации $authorizationCode
-        Введите код для авторизации:
-    """.trimIndent())
+        println("Ваш код для авторизации $authorizationCode \nВведите код для авторизации:")
         val userAuthorizationCode = readln().toInt()
         if (userAuthorizationCode != authorizationCode) println("Вы ввели неверный код")
     } while (userAuthorizationCode != authorizationCode)
+
     println("Поздравляем, вы успешно авторизовались!")
 }
 
@@ -55,9 +57,9 @@ fun getNewPassword(): String {
     return userPassword
 }
 
-fun isValidateLength(logOrPass: String) = logOrPass.length > MIN_COUNT_LOG
+fun isValidateLength(logOrPass: String) = logOrPass.length >= MIN_COUNT_LOG
 
 fun getAuthorizationCode(): Int = (1000..9999).random()
 
-const val MIN_COUNT_LOG = 4
+const val MIN_COUNT_LOG = 5
 const val LENGTH_PASSWORD = 6
