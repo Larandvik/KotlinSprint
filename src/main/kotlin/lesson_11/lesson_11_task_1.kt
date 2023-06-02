@@ -4,7 +4,7 @@ package lesson_11
 Названием может быть, например, User.
 Создай два экземпляра класса с произвольными данными и выведи их в консоль.*/
 
-class User (
+class User11 (
     private val id: Int,
     private val login: String,
     private val password: String,
@@ -14,8 +14,8 @@ class User (
 }
 
 fun main() {
-    val user1 = User(1, "batman", "qwerty123", "qwerty@gmail.com")
-    val user2 = User(2, "robin", "qwerty321", "robin@gmail.com")
+    val user1 = User11(1, "batman", "qwerty123", "qwerty@gmail.com")
+    val user2 = User11(2, "robin", "qwerty321", "robin@gmail.com")
 
     println(user1)
     println(user2)
