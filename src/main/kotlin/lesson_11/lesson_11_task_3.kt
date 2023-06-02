@@ -1,4 +1,5 @@
 package lesson_11
+
 /*Нужно описать сущности для упрощенной версии приложения социальной сети, в которой общаются только голосом.
 
 Функционал одного из модулей будет такой. Есть лента, в которой отображаются “комнаты” для общения по интересам.
@@ -34,4 +35,50 @@ fun main() {
     room2.getListOfGuest()
     room2.removeFromRoom(user4)
     room2.getListOfGuest()
+}
+
+class Room(
+    private val cover: String,
+    private val name: String,
+    private val listOfUser: MutableList<User> = mutableListOf(),
+) {
+    fun addToRoom(user: User) = listOfUser.add(user)
+
+    fun removeFromRoom(user: User) = listOfUser.remove(user)
+
+    fun pressLongAvatar(user: User) = user.getName()
+
+    fun getListOfGuest() = println(listOfUser.toString())
+}
+
+class User(
+    private val name: String,
+    private var status: String = "",
+) {
+    companion object {
+        private var counter = 0
+        fun getNextId(): Int {
+            return ++counter
+        }
+    }
+
+    val id: Int = getNextId()
+
+    fun getName() {
+        println(name)
+    }
+
+    fun setStatus(options: String) {
+        when (options) {
+            "talking" -> status = "разговаривает"
+            "micOff" -> status = "микрофон выключен"
+            "muted" -> status = "пользователь заглушен"
+        }
+    }
+
+    fun getStatus() = status
+
+    override fun toString(): String {
+        return "User(name='$name', status='$status', id=$id)"
+    }
 }
