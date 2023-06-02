@@ -5,14 +5,14 @@ package lesson_12
 Переменной, хранящей информацию о дожде, установи значение по умолчанию.
 Информацию о погоде по дням выведи в консоль отдельным методом класса.*/
 fun main() {
-    val weatherToday = WeatherTracker3(21, 9, false, 733)
-    val weatherTomorrow = WeatherTracker3(25, 10, true, 738)
+    val weatherToday = WeatherTracker123(21, 9, false, 733)
+    val weatherTomorrow = WeatherTracker123(25, 10, true, 738)
 
     weatherToday.printWeather2()
     weatherTomorrow.printWeather2()
 }
 
-class WeatherTracker3(
+class WeatherTracker123(
     val temperatureDay: Int,
     val temperatureNight: Int,
     val isRainy: Boolean = false,
