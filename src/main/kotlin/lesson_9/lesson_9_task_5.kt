@@ -8,17 +8,15 @@ package lesson_9
 fun main() {
 
     println("Введите 5 названий ингредиентов (каждый по отдельности):")
-    val ingredients = mutableListOf<String>()
+    val ingredients = mutableSetOf<String>()
 
-    while (ingredients.size < 5) {
-        val ingredient = readln()
-        if (!ingredients.contains(ingredient))
-        ingredients.add(ingredient)
+    for (i in 0..4) {
+        ingredients.add(readln())
     }
+    val listIngredients = ingredients.toMutableList()
+    listIngredients.sort()
+    listIngredients[0] = listIngredients[0].replaceFirstChar { it.uppercaseChar() }
 
-    ingredients.sort()
-    ingredients[0] = ingredients[0].replaceFirstChar { it.uppercaseChar() }
-    val resultForPrint = ingredients.joinToString(", ", postfix = "." )
-
+    val resultForPrint = listIngredients.joinToString(", ", postfix = "." )
     println(resultForPrint)
 }
