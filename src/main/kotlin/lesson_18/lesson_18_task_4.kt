@@ -20,7 +20,7 @@ abstract class Parcel {
 class RectangularParcel(
     private val length: Double,
     private val width: Double,
-    private val height: Double
+    private val height: Double,
 ) : Parcel() {
 
     override fun getAreaParcel(): Double {
@@ -29,7 +29,7 @@ class RectangularParcel(
 }
 
 class CubicParcel(
-    private val sideLength: Double
+    private val sideLength: Double,
 ) : Parcel() {
 
     override fun getAreaParcel(): Double {
