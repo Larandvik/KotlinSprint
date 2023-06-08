@@ -12,19 +12,25 @@ package lesson_10
 fun main() {
     do {
         runGame()
-    } while (runGame())
-    if (!runGame()) println("Вы выиграли $counterWinGame партий")
+    } while (continueGame())
+    println("Вы выиграли $counterWinGame партий")
 }
 
-fun runGame(): Boolean {
+fun continueGame(): Boolean {
+    var userAnswer: String
+    do {
+        println("Хотите бросить кости еще раз? Введите Да или Не")
+        userAnswer = readln().lowercase()
+    } while (userAnswer != "да" && userAnswer != "нет")
+    return userAnswer == "да"
+}
+
+fun runGame() {
     println("Комьютер бросает кости")
     val throwComputer = getRollDiceMove()
     println("компьютер выбросил: $throwComputer")
 
-    do {
-        println("Ваша очередь бросать кости (нажмите enter)")
-        val gamerMove = readln()
-    } while (gamerMove.isNotEmpty())
+    println("Ваша очередь бросать кости")
     val throwUser = getRollDiceMove()
     println("игрок выбросил: $throwUser")
 
@@ -35,11 +41,7 @@ fun runGame(): Boolean {
         комьютер выбросил: $computerSum
         игрок выбросил: $userSum
         ${getAWinner(computerSum, userSum)}
-        Хотите бросить кости еще раз? Введите Да или Нет
-    """.trimIndent()
-    )
-    val answerUser = readln() == "да"
-    return (answerUser)
+    """.trimIndent())
 }
 
 fun getAWinner(computer: Int, user: Int): String =
