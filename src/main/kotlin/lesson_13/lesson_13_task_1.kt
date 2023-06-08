@@ -4,14 +4,14 @@ package lesson_13
 Номер телефона – целочисленное значение.
 Нужно учесть ситуацию, что поле с компанией может оставаться незаполненным.
 Поля не должны иметь никакой инициализации по умолчанию.*/
-class Contact(val name: String, val phone: Long, val company: String?) {
+fun main() {
+    val contact1 = Contact("nikita", 8_925_000_00_09)
+    println(contact1)
+}
+
+class Contact(val name: String, val phone: Long, val company: String? = null) {
 
     override fun toString(): String {
         return "Contact(name='$name', phone=$phone, company=$company)"
     }
-}
-
-fun main() {
-    val contact1 = Contact("nikita", 8_925_000_00_09, null)
-    println(contact1)
 }
