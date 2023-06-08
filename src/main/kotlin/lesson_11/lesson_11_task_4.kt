@@ -5,26 +5,26 @@ package lesson_11
 После проектирования создай объект класса Contact с данными из скриншота.*/
 
 fun main() {
-    val contact: Contact = Contact("First Name",
+    val mother = FavoriteContact("мама")
+
+    val contact: Contact = Contact(
+        "First Name",
         "Second Name",
         "8 (999) 999-42-42",
         "8 (999) 888-42-42",
         iCloud = "mail@mail.ru",
-        category1 = "userName",
-        category2 = "userName",
-        category3 = "userName")
+        mother,
+    )
 }
 
 class Contact(
 
-    private val name: String = "",
-    private val secondName: String = "",
-    private val cellularPhone: String = "",
-    private val homePhone: String = "",
-    private val iCloud: String = "",
-    private val category1: String = "",
-    private val category2: String = "",
-    private val category3: String = "",
+    private val name: String = "Name",
+    private val secondName: String = "Surname",
+    private val cellularPhone: String,
+    private val homePhone: String,
+    private val iCloud: String,
+    private val favoriteContacts: FavoriteContact,
     private val photo: String = "photo",
 
     ) {
@@ -52,3 +52,5 @@ class Contact(
         println("Открываем экран для отправки email по адресу $iCloud")
     }
 }
+
+class FavoriteContact(val name: String)
