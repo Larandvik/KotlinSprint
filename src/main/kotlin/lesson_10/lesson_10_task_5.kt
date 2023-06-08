@@ -20,7 +20,7 @@ fun main() {
 
     do {
         println("Придумайте логин (не менее $MIN_COUNT_LOG символов):")
-        userLogin = readlnOrNull().toString()
+        userLogin = readln()
         if (!isValidateLength(userLogin)) println("Login должен быть не менее 5 символов")
     } while (!isValidateLength(userLogin))
 
