@@ -37,11 +37,13 @@ fun runGame() {
     val computerSum = throwComputer.sum()
     val userSum = throwUser.sum()
 
-    println("""
+    println(
+        """
         комьютер выбросил: $computerSum
         игрок выбросил: $userSum
         ${getAWinner(computerSum, userSum)}
-    """.trimIndent())
+    """.trimIndent()
+    )
 }
 
 fun getAWinner(computer: Int, user: Int): String =
