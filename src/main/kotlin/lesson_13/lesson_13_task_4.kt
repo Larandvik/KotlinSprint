@@ -45,17 +45,13 @@ fun printContacts(list: List<Contact4>) {
     }
 }
 
-class Contact4(_name: String?, _phone: Long?, _company: String?) {
-
-    private val name = _name
-    private val phone = _phone
-    private val company = _company ?: "не указано"
+class Contact4(private val name: String?, private val phone: Long?, private val company: String?) {
 
     override fun toString(): String {
         return """
             Имя: $name
             Номер: $phone
-            Компания: $company
+            Компания: ${company ?: "не указано"}
             
         """.trimIndent()
     }
