@@ -9,32 +9,31 @@ package lesson_14
  – выведи в консоль пост и комментарий к нему.*/
 fun main() {
     val newPost = Message("Всем привет", "Batman")
-    val newComment = Comment("Привет", "Robin")
-
     newPost.addMessage()
     println()
-    newComment.addMessage(newPost)
+
+    val newComment = Comment("Привет", "Robin", newPost)
+    newComment.addMessage()
 }
 
 open class Message(
-
     val text: String,
     val authorText: String,
 ) {
 
-    fun addMessage() {
+    open fun addMessage() {
         println("$authorText: $text")
     }
 }
 
 class Comment(
-
     text: String,
     authorText: String,
+    val parentMessage: Message,
 ) : Message(text, authorText) {
 
-    fun addMessage(commentTo: Message) {
+    override fun addMessage() {
+        println("комментарий к посту \"${parentMessage.text}\" от ${parentMessage.authorText}")
         super.addMessage()
-        println("комментарий к посту ${commentTo.text} от ${commentTo.authorText}")
     }
 }
