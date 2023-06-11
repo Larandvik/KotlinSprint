@@ -13,7 +13,7 @@ fun main() {
         "8 (999) 999-42-42",
         "8 (999) 888-42-42",
         iCloud = "mail@mail.ru",
-        mother,
+        listOf(mother),
     )
 }
 
@@ -24,7 +24,7 @@ class Contact(
     private val cellularPhone: String,
     private val homePhone: String,
     private val iCloud: String,
-    private val favoriteContacts: FavoriteContact,
+    private val favoriteContacts: List<FavoriteContact>,
     private val photo: String = "photo",
 
     ) {
