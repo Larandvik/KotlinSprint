@@ -14,9 +14,9 @@ fun main() {
     dice3.rollDice()
 }
 
-open class Dice182 {
+abstract class Dice182 {
 
-    open val randomDice = 0
+    abstract val randomDice: Int
 
     open fun rollDice() {
         println("Выпало число: $randomDice")
