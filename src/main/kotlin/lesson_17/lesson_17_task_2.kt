@@ -1,4 +1,5 @@
 package lesson_17
+
 /*Нужно написать класс для корабля в мобильной игре.
 У корабля есть имя, средняя скорость и порт приписки.
 Имя корабля менять нельзя, при попытке перезаписать имя в консоль должно выводиться предупреждение.
@@ -16,6 +17,9 @@ class Ship(
     private val averageSpeed: Int = 100,
     private val shipPort: String = "Ocean",
 ) {
-    var name: String = "Nautilus"
-        set(value) { println("Имя корабля менять нельзя") }
+
+    var name: String = name
+        set(value) {
+            println("Имя корабля менять нельзя")
+        }
 }
