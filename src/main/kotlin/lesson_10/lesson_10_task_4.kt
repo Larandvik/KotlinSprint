@@ -41,12 +41,12 @@ fun runGame() {
         """
         комьютер выбросил: $computerSum
         игрок выбросил: $userSum
-        ${getAWinner(computerSum, userSum)}
+        ${getAWinner191(computerSum, userSum)}
     """.trimIndent()
     )
 }
 
-fun getAWinner(computer: Int, user: Int): String =
+fun getAWinner191(computer: Int, user: Int): String =
     if (user > computer) {
         counterWinGame++
         "Победило человечество"
@@ -56,11 +56,11 @@ fun getAWinner(computer: Int, user: Int): String =
 fun getRollDiceMove(): List<Int> {
     val rollDice = mutableListOf<Int>()
     for (i in 0 until COUNT_ROLLDICE) {
-        rollDice.add(varRollDice.random())
+        rollDice.add(varRollDice191.random())
     }
     return rollDice
 }
 
 const val COUNT_ROLLDICE = 2
-val varRollDice = (0..6)
+val varRollDice191 = (0..6)
 var counterWinGame = 0
