@@ -17,28 +17,30 @@ package lesson_14
  – наконец, создай 2 метода: первый, принимая на вход список геометрических фигур, должен вернуть сумму периметров красных фигур;
  второй, также принимая на вход список, должен вернуть сумму площадей красных фигур;
  – вызови эти два метода с массивом созданных объектов фигур  и выведи результат в консоль.*/
-const val PI = 3.14159
+const val COLOR_RED = "red"
+const val COLOR_BLACK = "black"
+const val COLOR_GREEN = "green"
 
 fun main() {
-    val circle = Circle("red", 5.0)
-    val rectangle = Rectangle("black", 20.0, 10.0)
-    val triangle = Triangle("green", 5.0, 3.0, 7.0)
-    println(getSumRedFiguresPerimeter(listOf(circle, rectangle, triangle)))
-    println(getSumRedFiguresArea(listOf(circle, rectangle, triangle)))
+    val circle = Circle(COLOR_RED, 5.0)
+    val rectangle = Rectangle(COLOR_BLACK, 20.0, 10.0)
+    val triangle = Triangle(COLOR_GREEN, 5.0, 3.0, 7.0)
+    println(getSumPerimeterAllRedFigures(listOf(circle, rectangle, triangle)))
+    println(getSumAreaAllRedFigures(listOf(circle, rectangle, triangle)))
 }
 
-fun getSumRedFiguresArea(list: List<Figure>): Double {
+fun getSumAreaAllRedFigures(list: List<Figure>): Double {
     var sum = 0.0
     for (figure in list) {
-        if (figure.color == "red") sum += figure.getFigureArea()
+        if (figure.color == COLOR_RED) sum += figure.getFigureArea()
     }
     return sum
 }
 
-fun getSumRedFiguresPerimeter(list: List<Figure>): Double {
+fun getSumPerimeterAllRedFigures(list: List<Figure>): Double {
     var sum = 0.0
     for (figure in list) {
-        if (figure.color == "red") sum += figure.getFigurePerimeter()
+        if (figure.color == COLOR_RED) sum += figure.getFigurePerimeter()
     }
     return sum
 }
@@ -52,9 +54,9 @@ class Circle(
     color: String,
     val radius: Double,
 ) : Figure(color) {
-    override fun getFigureArea(): Double = PI * radius * radius
+    override fun getFigureArea(): Double = Math.PI * Math.sqrt(radius)
 
-    override fun getFigurePerimeter(): Double = 2 * PI * radius
+    override fun getFigurePerimeter(): Double = 2 * Math.PI * radius
 }
 
 class Rectangle(
