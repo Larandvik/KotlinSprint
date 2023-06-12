@@ -16,32 +16,51 @@ fun main() {
 
 abstract class Animal183(val name: String) {
 
-    fun play() {
-        println("$name - играет")
-    }
+    abstract fun play()
 
-    fun sleep() {
-        println("$name - спит")
-    }
+    abstract fun sleep()
 
-    open fun eat() {
-        println("$name - ест")
-    }
+    abstract fun eat()
 }
 
 class Fox183(name: String) : Animal183(name) {
+
+    override fun play() {
+        println("$name - играет")
+    }
+
+    override fun sleep() {
+        println("$name - спит")
+    }
+
     override fun eat() {
         println("$name - ест ягоды")
     }
 }
 
 class Dog183(name: String) : Animal183(name) {
+    override fun play() {
+        println("$name - играет")
+    }
+
+    override fun sleep() {
+        println("$name - спит")
+    }
+
     override fun eat() {
         println("$name - ест кости")
     }
 }
 
 class Cat183(name: String) : Animal183(name) {
+    override fun play() {
+        println("$name - играет")
+    }
+
+    override fun sleep() {
+        println("$name - спит")
+    }
+
     override fun eat() {
         println("$name - ест рыбу")
     }
