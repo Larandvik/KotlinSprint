@@ -16,7 +16,7 @@ fun main() {
     multipleOrder.printOrderInfo()
 }
 
-open class Order181 {
+abstract class Order181 {
     open fun printOrderInfo() {
         println()
     }
