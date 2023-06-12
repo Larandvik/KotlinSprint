@@ -15,17 +15,16 @@ fun main() {
 }
 
 class Package(
-
     private val parcelNumber: Int,
-    private var location: String,
+    private var startLocation: String,
 ) {
 
     private var counterLocation: Int = 1
 
     var currentLocation: String
-        get() = location
+        get() = startLocation
         set(value) {
-            location = value
+            startLocation = value
             counterLocation++
             println(counterLocation)
         }
