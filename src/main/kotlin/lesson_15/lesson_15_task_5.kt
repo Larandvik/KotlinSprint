@@ -23,12 +23,9 @@ interface Drivable155 {
     fun drive()
 }
 
-abstract class Machine155(val name: String) : Drivable155 {
-    override fun drive() {
-        println("$name едет")
-    }
+interface CargoCarrier155 {
+    fun transportCargo(countWeight: Int)
 }
-
 
 interface PassengerCarrier155 {
     fun transportPassengers(countPassenger: Int) {
@@ -36,10 +33,11 @@ interface PassengerCarrier155 {
     }
 }
 
-interface CargoCarrier155 {
-    fun transportCargo(countWeight: Int)
+abstract class Machine155(val name: String) : Drivable155 {
+    override fun drive() {
+        println("$name едет")
+    }
 }
-
 
 class Car155(name: String) : Machine155(name), PassengerCarrier155 {
 
@@ -47,7 +45,6 @@ class Car155(name: String) : Machine155(name), PassengerCarrier155 {
         println("$name перевозит $countPassenger пассажиров")
     }
 }
-
 
 class Truck155(name: String) : Machine155(name), PassengerCarrier155, CargoCarrier155 {
     override fun transportPassengers(countPassenger: Int) {
@@ -58,4 +55,3 @@ class Truck155(name: String) : Machine155(name), PassengerCarrier155, CargoCarri
         println("$name перевозит $countWeight тонн груза")
     }
 }
-
