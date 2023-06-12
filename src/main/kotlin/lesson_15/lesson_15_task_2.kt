@@ -6,24 +6,28 @@ package lesson_15
 Протестируй работу программы.*/
 
 fun main() {
-    val messageTemp = SendMessageTemp("температура воздуха 22 градуса")
-    messageTemp.connectToServer()
-    messageTemp.sendMessage()
+    val SendMessageTemp = SendMessageTemp("температура воздуха 22 градуса")
+    SendMessageTemp.connectToServer()
+    SendMessageTemp.sendMessage()
     println()
 
-    val messageRainfall = SendMessageRainfall("осадков не будет")
-    messageRainfall.connectToServer()
-    messageRainfall.sendMessage()
+    val SendMessageRainfall = SendMessageRainfall("осадков не будет")
+    SendMessageRainfall.connectToServer()
+    SendMessageRainfall.sendMessage()
 }
 
-class SendMessageRainfall(text: String) : SendMessage(text) {
+class SendMessageRainfall(text: String) : PreparationMessageRainfall(text)
+
+class SendMessageTemp(text: String) : PreparationMessageTemp(text)
+
+abstract class PreparationMessageRainfall(text: String) : SendMessage(text) {
 
     init {
         println("Подготовить сообщение об осадках")
     }
 }
 
-class SendMessageTemp(text: String) : SendMessage(text) {
+abstract class PreparationMessageTemp(text: String) : SendMessage(text) {
 
     init {
         println("Подготовить сообщение о температуре")
@@ -32,7 +36,11 @@ class SendMessageTemp(text: String) : SendMessage(text) {
 
 abstract class SendMessage(val text: String) {
 
-    fun connectToServer() { println("Подключиться к серверу") }
+    fun connectToServer() {
+        println("Подключиться к серверу")
+    }
 
-    fun sendMessage() { println(text) }
+    fun sendMessage() {
+        println(text)
+    }
 }
