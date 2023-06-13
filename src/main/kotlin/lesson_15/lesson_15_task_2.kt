@@ -20,19 +20,9 @@ class SendMessageRainfall(text: String) : PreparationMessageRainfall(text)
 
 class SendMessageTemp(text: String) : PreparationMessageTemp(text)
 
-abstract class PreparationMessageRainfall(text: String) : SendMessage(text) {
+abstract class PreparationMessageRainfall(text: String) : SendMessage(text)
 
-    init {
-        println("Подготовить сообщение об осадках")
-    }
-}
-
-abstract class PreparationMessageTemp(text: String) : SendMessage(text) {
-
-    init {
-        println("Подготовить сообщение о температуре")
-    }
-}
+abstract class PreparationMessageTemp(text: String) : SendMessage(text)
 
 abstract class SendMessage(val text: String) {
 
