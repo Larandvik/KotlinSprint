@@ -10,35 +10,27 @@ package lesson_19
 
 fun main() {
     val tank = Tank("T34")
-    tank.takeNewBullets(takeBullets(Bullets.BLUE))
+    tank.takeNewBullets(Bullets.BLUE)
     tank.fire()
 
-    tank.takeNewBullets(takeBullets(Bullets.RED))
+    tank.takeNewBullets(Bullets.RED)
     tank.fire()
 }
 
-class Tank(private val name: String, private var bullets: Int = 1) {
+class Tank(private val name: String, private var tankBullets: Int = 1) {
 
     fun fire() {
-        println("танк $name стреляет и наносит урон $bullets")
+        println("танк $name стреляет и наносит урон $tankBullets")
     }
 
-    fun takeNewBullets(takeBullets: Int) {
-        println("вы получили новое вооружение с уроном $takeBullets")
-        bullets = takeBullets
+    fun takeNewBullets(bullets: Bullets) {
+        println("вы получили новое вооружение с уроном ${bullets.shotForce}")
+        tankBullets = bullets.shotForce
     }
 }
 
-enum class Bullets {
-    BLUE,
-    GREEN,
-    RED,
-}
-
-fun takeBullets(bullets: Bullets) : Int {
-    return when (bullets) {
-        Bullets.BLUE -> 5
-        Bullets.GREEN -> 10
-        Bullets.RED -> 20
-    }
+enum class Bullets(val shotForce: Int) {
+    BLUE(5),
+    GREEN(10),
+    RED(20),
 }
