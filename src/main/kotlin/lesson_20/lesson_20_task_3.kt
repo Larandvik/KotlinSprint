@@ -13,7 +13,8 @@ fun main() {
     openDoor(holmes)
 }
 
-val openDoor: (Player203) -> Unit = { player203 -> if (player203.isHasKey) println("${player203.name} открыл дверь") else println("Дверь заперта") }
+val openDoor: (Player203) -> Unit =
+    { player203 -> if (player203.isHasKey) println("${player203.name} открыл дверь") else println("Дверь заперта") }
 
 val getKey: (Player203) -> Unit = { player203 -> player203.isHasKey = true }
 
