@@ -1,7 +1,6 @@
 package lesson_11
 
 /*Реализовать класс работы форума (Forum), использующий созданные классы пользователей из 1 и 2 задачи.
-
 Примени паттерн “Фабрика”:
 
  – напрямую объекты не создаются. Пользователи добавляются на форум методом newUser() класса Forum;
@@ -16,7 +15,14 @@ package lesson_11
 добавив двух пользователей и по два сообщения от каждого пользователя.*/
 
 fun main() {
+    val forum = Forum115()
+    val batman = forum.newUser115("batman", "qwerty", "qwerty@gmail.com")
+    val robin = forum.newUser115("robin", "qwerty", "qwerty@gmail.com")
 
+    forum.newMessage115(batman, "Hello world")
+    forum.newMessage115(robin, "hi")
+
+    forum.printThread115()
 }
 
 class Forum115 {
@@ -31,29 +37,38 @@ class Forum115 {
         return newUser
     }
 
-    private fun generateUserId(): Int = lastUserId++
+    private fun generateUserId(): Int = ++lastUserId
 
-    fun newMessage115() {
-
+    fun newMessage115(author: User115, text: String): Message115 {
+        val newMessage = Message115(text, author.id)
+        messages.add(newMessage)
+        return newMessage
     }
 
     fun printThread115() {
-
+        for (message in messages) {
+            message.printMessage()
+        }
     }
 }
 
-class Message115 {
+class Message115(
+    val text: String,
+    val id: Int,
+) {
 
+    fun printMessage() {
+        println("authorId $id: $text")
+    }
 }
 
 class User115(
-    private var login: String,
+    val login: String,
     private var password: String,
     private var email: String,
     private var bio: String = "",
-    private val id: Int,
-
-    ) {
+    val id: Int,
+) {
 
     fun getInformationOfUser115() {
         println(
