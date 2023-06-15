@@ -17,9 +17,7 @@ fun main() {
 }
 
 abstract class Order181 {
-    open fun printOrderInfo() {
-        println()
-    }
+    abstract fun printOrderInfo()
 }
 
 class SingleOrder181(
