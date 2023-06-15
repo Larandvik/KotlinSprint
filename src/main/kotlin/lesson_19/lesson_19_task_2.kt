@@ -23,21 +23,13 @@ class Product(
         return """
             id товара: $id
             наименование: $name
-            категория: ${getCategoryName(category)}
+            категория: ${category.categoryName}
         """.trimIndent()
     }
 }
 
-enum class Categories {
-    CLOTHES,
-    STATIONERY,
-    MISCELLANEOUS,
-}
-
-fun getCategoryName(category: Categories) : String {
-    return when (category) {
-        Categories.CLOTHES -> "одежда"
-        Categories.STATIONERY -> "канцелярские товары"
-        Categories.MISCELLANEOUS -> "разное"
-    }
+enum class Categories(val categoryName: String) {
+    CLOTHES("одежда"),
+    STATIONERY("канцелярские товары"),
+    MISCELLANEOUS("разное"),
 }
