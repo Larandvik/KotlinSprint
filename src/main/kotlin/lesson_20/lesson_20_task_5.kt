@@ -7,12 +7,8 @@ package lesson_20
 
 fun main() {
     val robot = Robot()
-    println(robot.say())
 
-    println(setModifier(robot.say(), robot.reverseModifier))
 }
-
-fun setModifier(string: String, preModifier: (String) -> String): String = preModifier(string)
 
 class Robot(
     val phrases: List<String> = listOf(
@@ -23,7 +19,11 @@ class Robot(
         "пятая фраза"
     ),
 ) {
-    val reverseModifier: (String) -> String = { s: String -> s.reversed() }
+    fun setModifier(preModifier: (String) -> String): (String) -> String  =
 
-    fun say(): String = phrases.random()
+    var preModifier: (String) -> String = { it }
+
+    fun say() {
+        println(phrases.random())
+    }
 }
