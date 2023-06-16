@@ -7,7 +7,10 @@ package lesson_20
 
 fun main() {
     val robot = Robot()
+    robot.say()
 
+    robot.setModifier { phrase: String -> phrase.reversed() }
+    robot.say()
 }
 
 class Robot(
@@ -19,11 +22,13 @@ class Robot(
         "пятая фраза"
     ),
 ) {
-    fun setModifier(preModifier: (String) -> String): (String) -> String  =
+    fun setModifier(modifier: (String) -> String) {
+        this.modifier = modifier
+    }
 
-    var preModifier: (String) -> String = { it }
+    private var modifier: (String) -> String = { it }
 
     fun say() {
-        println(phrases.random())
+        println(modifier(phrases.random()))
     }
 }
