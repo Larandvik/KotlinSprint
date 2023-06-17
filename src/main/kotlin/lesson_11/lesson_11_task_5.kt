@@ -39,10 +39,9 @@ class Forum115 {
 
     private fun generateUserId(): Int = ++lastUserId
 
-    fun newMessage115(author: User115, text: String): Message115 {
+    fun newMessage115(author: User115, text: String) {
         val newMessage = Message115(text, author.id)
         messages.add(newMessage)
-        return newMessage
     }
 
     fun printThread115() {
